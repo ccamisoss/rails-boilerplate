@@ -8,4 +8,16 @@
   <li>
     <%= link_to "Escribir", new_articles_path %>
   </li>
+  <% if user_signed_in? %>
+    <li>
+      <%= button_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
+    </li> 
+  <%else%>
+    <li>
+      <%= link_to "Iniciar sesión", new_user_session_path %>
+    </li> 
+    <li>
+      <%= link_to "Registro", new_user_registration_path %>
+    </li> 
+  <%end%>
 </nav>
