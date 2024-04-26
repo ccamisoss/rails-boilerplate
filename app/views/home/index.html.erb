@@ -1,7 +1,3 @@
 <h1 class="text-3xl font-bold underline text-blue-600">
-    <% if user_signed_in? %>
-        Hello <%= current_user.email %>
-    <%else%>
-        Hello world!
-    <%end%>
+    Hello <%= current_user.email %>
 </h1>
