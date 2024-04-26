@@ -23,7 +23,8 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.create(title: params[:article][:title], content: params[:article][:content])
+    @article = current_user.articles.create(title: params[:article][:title], content: params[:article][:content])
+    redirect_to @article
   end
 
   def destroy
