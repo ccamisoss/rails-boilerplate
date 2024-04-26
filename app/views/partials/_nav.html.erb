@@ -1,23 +1,23 @@
 <nav>
   <li>
-    <%= link_to "Inicio", root_path %>
+    <%= link_to "Home", root_path %>
   </li>
   <li>
-    <%= link_to "Artículos", articles_path %>
+    <%= link_to "Articles", articles_path %>
   </li>
   <li>
-    <%= link_to "Escribir", new_articles_path %>
+    <%= link_to "Create new article", new_articles_path %>
   </li>
   <% if user_signed_in? %>
     <li>
-      <%= button_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
+      <%= button_to "Log out", destroy_user_session_path, method: :delete %>
     </li> 
   <%else%>
     <li>
-      <%= link_to "Iniciar sesión", new_user_session_path %>
+      <%= link_to "Log in", new_user_session_path %>
     </li> 
     <li>
-      <%= link_to "Registro", new_user_registration_path %>
+      <%= link_to "Sign in", new_user_registration_path %>
     </li> 
   <%end%>
 </nav>
