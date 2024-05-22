@@ -1,0 +1,16 @@
+<div>
+  <p>Edit user</p>
+  <% if current_user.avatar.attached? %>
+    <%= image_tag url_for(current_user.avatar), height:200 %>
+  <% end %>
+  <%= form_with(model: current_user, local: true) do |form| %>
+    <div>
+      <%= form.label :avatar %>
+      <%= form.file_field :avatar %>
+    </div>
+
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>

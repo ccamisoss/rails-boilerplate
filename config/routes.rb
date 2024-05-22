@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   get "/bienvenida", to: "home#index"
+  get "/perfil", to: "users#edit"
+  resources :users, only: [:update]
 
   root to: "home#index"
 
