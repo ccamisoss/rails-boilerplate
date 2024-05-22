@@ -1,5 +1,5 @@
 <div>
   <h3><%= article.title %></h3>
-  <p><%= article.created_at %></p>
+  <p><%= article.created_at.strftime("%d/%m %H:%M") %></p>
   <%= link_to "See more", article %>
 </div>
