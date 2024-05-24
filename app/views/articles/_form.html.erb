@@ -1,27 +1,31 @@
-<%= form_with(model: @article, local: true) do |form| %>
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+<div class="form-container">
+  <h2 class="title">Create new article.</h2>
 
-  <div>
-    <%= form.label :category_elements %>
-    <div>
-      <% @categories.each do |category| %>
-        <label>
-          <%= form.check_box :category_elements, {multiple: true}, category.id, nil %>
-          <%= category.title %>
-        </label>          
-      <% end %>  
+  <%= form_with(model: @article, local: true, html: { class: 'session-form' }) do |form| %>
+    <div  class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
     </div>
-  </div>
-  
-  <div>
-    <%= form.label :content %>
-    <%= form.rich_text_area :content %>
-  </div>
-  
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+    
+    <div class="textarea-container">
+      <%= form.label :content %>
+      <%= form.rich_text_area :content, class: "textarea" %>
+    </div>
+    
+    <div class="field">
+      <%= form.label :category_elements %>
+      <div class="category-container">
+        <% @categories.each do |category| %>
+          <label>
+            <%= form.check_box :category_elements, {multiple: true}, category.id, nil %>
+            <%= category.title %>
+          </label>          
+        <% end %>  
+      </div>
+    </div>
+    
+    <div class="actions" id="margin-top">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>
